@@ -1,3 +1,5 @@
+This is a Java project that I developed in my Object-Oriented Programming Class in my University.
+
 # 🎮 Terras Sombrias - RPG Narrativo
 ## Tarefa 6 - MC322 (Unicamp)
 
