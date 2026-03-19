@@ -21,6 +21,7 @@ We implemented a clear distinction between how objects are owned and referenced:
 * **Aggregation (Weak Coupling):** The `Monster` (`Monstro`) doesn't carry physical weapon instances. Instead, it stores a list of weapon **classes** (`List<Class<? extends Arma>>`). Items are only instantiated ("dropped") when a monster is defeated.
 
 #### Relationship Diagram
+
 ```mermaid
 classDiagram
     class Batalha {
@@ -41,8 +42,8 @@ classDiagram
     class Arma {
         <<Abstract>>
     }
-    Batalha *-- Heroi : "Owned by"
-    Monstro o-- Arma : "References Classes"
+    Batalha *-- Heroi : Owned_by
+    Monstro o-- Arma : References_Classes
 💾 Persistence System (JAXB)
 The game features a robust Save/Load system using JAXB (Jakarta XML Binding):
 
