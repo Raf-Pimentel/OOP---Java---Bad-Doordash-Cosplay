@@ -1,3 +1,4 @@
+```markdown
 # 🎮 Dark Lands (Terras Sombrias)
 > **Narrative RPG Engine built with Java 21**
 > *Final Project for MC322 - Object-Oriented Programming (Unicamp)*
@@ -22,7 +23,8 @@ We implemented a clear distinction between how objects are owned and referenced:
 
 #### Relationship Diagram
 
-```mermaid
+```
+mermaid
 classDiagram
     class Batalha {
         -Heroi heroi
@@ -44,43 +46,51 @@ classDiagram
     }
     Batalha *-- Heroi : Owned_by
     Monstro o-- Arma : References_Classes
-    
-💾 Persistence System (JAXB)
-The game features a robust Save/Load system using JAXB (Jakarta XML Binding):
+```
 
-Serialization: The entire state of the Batalha class is converted to XML.
+---
 
-Hierarchical Support: Handles polymorphic structures (different types of monsters and actions) using @XmlSeeAlso annotations.
+### 💾 Persistence System (JAXB)
+The game features a robust Save/Load system using **JAXB (Jakarta XML Binding)**:
 
-Storage: Saves are managed by the GerenciadorDePersistencia and stored in the saves/ directory.
+* **Serialization:** The entire state of the `Batalha` class is converted to XML.
+* **Hierarchical Support:** Handles polymorphic structures (different types of monsters and actions) using `@XmlSeeAlso` annotations.
+* **Storage:** Saves are managed by the `GerenciadorDePersistencia` and stored in the `saves/` directory.
 
-🚀 Getting Started
-Prerequisites
-JDK 21 or higher
+---
 
-Gradle 8.x (Wrapper included)
+## 🚀 Getting Started
 
-Installation & Execution
-Clone the repository:
+### Prerequisites
+* **JDK 21** or higher
+* **Gradle 8.x** (Wrapper included)
 
-Bash
-git clone [https://github.com/your-username/dark-lands-rpg.git](https://github.com/your-username/dark-lands-rpg.git)
-cd dark-lands-rpg
-Build the project:
+### Installation & Execution
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/dark-lands-rpg.git
+    cd dark-lands-rpg
+    ```
+2.  **Build the project:**
+    ```bash
+    ./gradlew build
+    ```
+3.  **Run the game:**
+    ```bash
+    ./gradlew run
+    ```
 
-Bash
-./gradlew build
-Run the game:
-
-Bash
-./gradlew run
-Running Tests
-We use JUnit 5 to ensure the stability of combat logic and persistence:
-
-Bash
+### Running Tests
+We use **JUnit 5** to ensure the stability of combat logic and persistence:
+```bash
 ./gradlew test
-📁 Project Structure
-Plaintext
+```
+
+---
+
+## 📁 Project Structure
+
+```text
 src/main/java/
 ├── app/          # Main entry, Battle coordination, and Persistence logic
 ├── combate/      # Combat engine, Combatant interfaces, and Actions
@@ -90,9 +100,17 @@ src/main/java/
 ├── itens/        # Items and Weapon hierarchy
 ├── personagens/  # Hero and Monster specializations
 └── util/         # Input handling and CLI helpers
-👥 Authors
-Rafael Rodrigues Pimentel de Melo
+```
 
-Matheus Boazão Silveira
+---
 
-University of Campinas (Unicamp) - 2025
+## 👥 Authors
+* **Rafael Rodrigues Pimentel de Melo**
+* **Matheus Boazão Silveira**
+
+*University of Campinas (Unicamp) - 2025*
+
+---
+
+**Last Update**: Task 6 - Persistence & Aggregation Refactor
+```
