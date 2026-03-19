@@ -1,131 +1,131 @@
-# ⚓ Terras Sombrias — RPG Narrativo
+# ⚓ Dark Lands — Narrative RPG
 
-Um jogo de RPG por turnos ambientado nos mares, onde você enfrenta criaturas marinhas em batalhas estratégicas ao longo de três fases.
-
----
-
-## 🎮 Sobre o Jogo
-
-Você é um herói pirata que deve enfrentar as criaturas das profundezas para conquistar o tesouro da Ilha Perdida. Cada fase apresenta um novo cenário e um inimigo diferente, com eventos aleatórios que podem te ajudar ou te prejudicar.
+A turn-based RPG set on the high seas, where you face marine creatures in strategic battles across three stages.
 
 ---
 
-## 🗺️ Fases
+## 🎮 About the Game
 
-| Fase | Cenário | Inimigo |
-|------|---------|---------|
-| 1 | Praia Assombrada | Sereia Encantadora |
-| 2 | Gruta Submersa | Homem-Peixe |
-| 3 | Covil do Kraken | Kraken |
-
-Cada cenário pode disparar **eventos aleatórios** antes do combate:
-
-- **Praia Assombrada** → Emboscada de Carangueijos (causa dano)
-- **Gruta Submersa** → Cardume de Peixes Descontrolados (dano ou cura)
-- **Covil do Kraken** → Elevação do Nível da Água (dano e redução de força)
+You are a pirate hero who must confront the creatures of the deep to claim the treasure of the Lost Island. Each stage introduces a new scenario and a different enemy, with random events that can help or hinder your progress.
 
 ---
 
-## 🦸 Heróis
+## 🗺️ Stages
 
-### Capitão Cabeçudo
-> Pirata veterano com ataques físicos poderosos
+| Stage | Scenario | Enemy |
+|-------|----------|-------|
+| 1 | Haunted Beach | Enchanting Mermaid |
+| 2 | Submerged Grotto | Fish-Man |
+| 3 | Kraken's Lair | Kraken |
 
-- **HP:** 330 | **Força:** 6 | **Sorte:** 25%
-- **Ataque do Capitão** — golpe físico com multiplicador aleatório
-- **Tiro Caolho** *(crítico)* — dano massivo ativado pela sorte (Força × 6)
-- Acumula raiva com o Ataque de Tridente
+Each scenario can trigger **random events** before combat:
 
-### Corsário Sedentário
-> Estrategista que estuda inimigos para golpes devastadores
-
-- **HP:** 120 | **Força:** 2 | **Sorte:** 30%
-- **Analisar Inimigo** — acumula Pontos de Estudo (1 ou 2 por turno)
-- **Golpe de Mestre** — ativado com 3+ Pontos de Estudo; bônus de +15 dano por ponto acumulado
+- **Haunted Beach** → Crab Ambush (deals damage)
+- **Submerged Grotto** → Rampant Fish Swarm (damage or healing)
+- **Kraken's Lair** → Rising Water Level (damage and strength reduction)
 
 ---
 
-## 👾 Monstros
+## 🦸 Heroes
 
-### Sereia Encantadora
-- HP: 75 | Força: 7 | XP: 25
-- **Golpe de Cauda** — ataque físico padrão
-- **Canto Divino** *(30% de chance)* — dano mágico amplificado
-- Dropa: **Cutelo**
+### Captain Hardhead
+> Veteran pirate with powerful physical attacks
 
-### Homem-Peixe
-- HP: 50 | Força: 5 | XP: 40
-- **Ataque de Tridente** — ataque físico que acumula raiva
-- **Jato de Amônia** *(após 3 ataques de raiva)* — dano especial devastador
-- Dropa: **Mosquete Enferrujado**
+- **HP:** 330 | **Strength:** 6 | **Luck:** 25%
+- **Captain's Strike** — physical blow with a random multiplier
+- **One-Eyed Shot** *(critical)* — massive damage triggered by luck (Strength × 6)
+- Builds rage with the Trident Attack
+
+### Sedentary Corsair
+> Tactician who studies enemies to deliver devastating blows
+
+- **HP:** 120 | **Strength:** 2 | **Luck:** 30%
+- **Analyze Enemy** — accumulates Study Points (1 or 2 per turn)
+- **Master Strike** — activated with 3+ Study Points; deals +15 bonus damage per accumulated point
+
+---
+
+## 👾 Monsters
+
+### Enchanting Mermaid
+- HP: 75 | Strength: 7 | XP: 25
+- **Tail Whip** — standard physical attack
+- **Divine Song** *(30% chance)* — amplified magical damage
+- Drops: **Cleaver**
+
+### Fish-Man
+- HP: 50 | Strength: 5 | XP: 40
+- **Trident Attack** — physical attack that builds rage
+- **Ammonia Blast** *(after 3 rage attacks)* — devastating special damage
+- Drops: **Rusty Musket**
 
 ### Kraken
-- HP: 130 | Força: 10 | XP: 100
-- **Golpe de Tentáculo** — ataque físico com 20% de chance de agarrar
-- **Afogamento** *(quando herói estiver agarrado)* — dano massivo
-- Dropa: **Pistola do Kraken**
+- HP: 130 | Strength: 10 | XP: 100
+- **Tentacle Whip** — physical attack with 20% chance to grab
+- **Drowning** *(when hero is grabbed)* — massive damage
+- Drops: **Kraken's Pistol**
 
 ---
 
-## ⚔️ Sistema de Combate
+## ⚔️ Combat System
 
-O combate é por turnos: herói age primeiro, depois o monstro. O ciclo continua até um dos dois morrer.
+Combat is turn-based: the hero acts first, then the monster. The cycle continues until one of them dies.
 
-**Mecânicas especiais:**
-- A cada vitória o herói ganha **XP** e pode **subir de nível** (aumentando HP máximo, força e sorte)
-- Armas droppadas pelos monstros podem ser **equipadas** no menu pós-turno
-- Equipar armas requer **nível mínimo**
-
----
-
-## 🗡️ Armas
-
-| Arma | Dano | Nível Mínimo |
-|------|------|--------------|
-| Cutelo | +10 | 1 |
-| Mosquete Enferrujado | +14 | 2 |
-| Pistola do Kraken | +22 | 3 |
+**Special mechanics:**
+- Each victory grants the hero **XP** and may trigger a **level up** (increasing max HP, strength, and luck)
+- Weapons dropped by monsters can be **equipped** in the post-turn menu
+- Equipping weapons requires a **minimum level**
 
 ---
 
-## 🎚️ Dificuldades
+## 🗡️ Weapons
 
-| Dificuldade | Força dos Monstros | XP Ganho |
-|-------------|-------------------|----------|
-| Fácil | ×0.75 | ×1.25 |
+| Weapon | Damage | Min Level |
+|--------|--------|-----------|
+| Cleaver | +10 | 1 |
+| Rusty Musket | +14 | 2 |
+| Kraken's Pistol | +22 | 3 |
+
+---
+
+## 🎚️ Difficulty Levels
+
+| Difficulty | Monster Strength | XP Gained |
+|------------|-----------------|-----------|
+| Easy | ×0.75 | ×1.25 |
 | Normal | ×1.0 | ×1.0 |
-| Difícil | ×1.5 | ×0.8 |
+| Hard | ×1.5 | ×0.8 |
 
 ---
 
-## 💾 Sistema de Saves
+## 💾 Save System
 
-O jogo permite **salvar e carregar** partidas em qualquer momento do menu pós-turno. Os saves são armazenados em arquivos XML na pasta `saves/` usando serialização JAXB.
+The game allows you to **save and load** runs at any point from the post-turn menu. Saves are stored as XML files in the `saves/` folder using JAXB serialization.
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
 - **Java 21**
-- **Gradle** (gerenciamento de build)
-- **JAXB** (serialização XML para saves)
-- **JUnit 5** (testes automatizados)
+- **Gradle** (build management)
+- **JAXB** (XML serialization for saves)
+- **JUnit 5** (automated testing)
 
 ---
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-### Pré-requisitos
+### Prerequisites
 - Java 21+
 - Gradle
 
-### Rodando o jogo
+### Running the game
 
 ```bash
 ./gradlew run
 ```
 
-### Rodando os testes
+### Running tests
 
 ```bash
 ./gradlew test
@@ -133,28 +133,28 @@ O jogo permite **salvar e carregar** partidas em qualquer momento do menu pós-t
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 src/main/java/
-├── app/              # Ponto de entrada e gerenciamento da batalha
-├── combate/          # Interfaces e ações de combate
-├── config/           # Enum de dificuldade
-├── exceptions/       # Exceções customizadas
-├── fases/            # Fases, cenários e eventos
-├── itens/armas/      # Armas disponíveis no jogo
-├── personagens/      # Base para heróis e monstros
-│   ├── heroi/        # Classes dos heróis jogáveis
-│   └── monstros/     # Classes dos monstros inimigos
-└── util/             # Utilitários (InputManager)
+├── app/              # Entry point and battle management
+├── combate/          # Combat interfaces and actions
+├── config/           # Difficulty enum
+├── exceptions/       # Custom exceptions
+├── fases/            # Stages, scenarios, and events
+├── itens/armas/      # Available weapons
+├── personagens/      # Base classes for heroes and monsters
+│   ├── heroi/        # Playable hero classes
+│   └── monstros/     # Enemy monster classes
+└── util/             # Utilities (InputManager)
 ```
 
 ---
 
-## 🏗️ Design Patterns Utilizados
+## 🏗️ Design Patterns Used
 
-- **Strategy** — ações de combate (`AcaoDeCombate`) são intercambiáveis
-- **Template Method** — herói e monstros herdam de `Personagem` com comportamentos customizáveis
-- **Builder** — `ConstrutorDeCenarioFixo` implementa `GeradorDeFases`
-- **Composição** — `Batalha` contém o herói (herói não existe fora de uma batalha)
-- **Agregação** — monstros guardam classes de armas, não instâncias
+- **Strategy** — combat actions (`AcaoDeCombate`) are interchangeable
+- **Template Method** — heroes and monsters inherit from `Personagem` with customizable behaviors
+- **Builder** — `ConstrutorDeCenarioFixo` implements `GeradorDeFases`
+- **Composition** — `Batalha` owns the hero (the hero does not exist outside a battle)
+- **Aggregation** — monsters store weapon classes, not instances
