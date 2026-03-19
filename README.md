@@ -1,181 +1,81 @@
-This is a Java project that I developed for my Object-Oriented Programming class at the University of Campinas (Unicamp).
+🎮 Dark Lands (Terras Sombrias)
+A Narrative RPG Engine built with Java 21 > Final Project for MC322 - Object-Oriented Programming (Unicamp)
 
-🎮 Dark Lands (Terras Sombrias) - Narrative RPG
-Task 6 - MC322 (Unicamp)
-📋 About the Project
-A narrative RPG developed in Java 21 featuring a complete system of:
+📖 Overview
+Dark Lands is a text-based narrative RPG where players face mythical creatures in strategic turn-based combat. Developed as a university assignment, the project focuses on demonstrating mastery of Object-Oriented Programming (OOP) design patterns, specifically regarding object lifecycles, data persistence, and clean architecture.
 
-✅ Persistence (Save/Load functionality using JAXB)
+🛠️ Key Technical Features
+🧩 OOP Design: Composition vs. Aggregation
+The project strictly follows architectural requirements to demonstrate different object relationships:
 
-✅ Aggregation and Composition correctly implemented
+Composition (Strict Lifecycle): The Hero is composed within the Battle (Batalha). A Hero does not exist independently of a game session; if the Battle is destroyed, the Hero is too.
 
-✅ Battle System coordinated by the Batalha (Battle) class
+Aggregation (Weak Coupling): The Monster (Monstro) uses aggregation for its loot. It stores a list of weapon classes (List<Class<? extends Arma>>) rather than active instances. This ensures that items are only created when "dropped," optimizing memory and decoupling state.
 
-✅ Loot System refactored using aggregation principles
+💾 Persistence System (JAXB)
+The game features a robust Save/Load system using JAXB (Jakarta XML Binding).
 
-🏗️ Architecture
-Composition
-Batalha → Heroi: The hero only exists within the context of a battle.
+The entire state of the Batalha class is serialized into XML.
 
-The Main class does not instantiate heroes directly.
+Saves are automatically handled in the saves/ directory.
 
-Aggregation
-Monstro → List<Class<? extends Arma>>: Monsters store weapon classes, not instances.
+Complex Hierarchy: Handles polymorphic classes (Heroes/Monsters) using @XmlSeeAlso annotations.
 
-Weapons are instantiated only when they are dropped as loot.
+⚔️ Combat & Loot Mechanics
+Dynamic Events: Random encounters and scenario-based modifiers (e.g., rising water levels affecting stats).
 
-🚀 How to Run
-Compile
+Polymorphic Actions: Combat moves are implemented as distinct classes, allowing for easy expansion of the move pool.
+
+🚀 Getting Started
+Prerequisites
+JDK 21 or higher
+
+Gradle (Wrapper included)
+
+Installation & Execution
+Clone the repository:
+
 Bash
-./gradlew clean build
-Run
+git clone https://github.com/your-user/dark-lands-rpg.git
+cd dark-lands-rpg
+Build the project:
+
+Bash
+./gradlew build
+Run the game:
+
 Bash
 ./gradlew run
-Run Tests
+Running Tests
+We use JUnit 5 to ensure the stability of combat logic and persistence:
+
 Bash
 ./gradlew test
-💾 Persistence System
-Saving the Game
-Post-combat menu → "Save Game" option.
-
-Saves are stored in: saves/*.xml.
-
-Loading the Game
-Main menu → "Load Game" option (appears only if saves exist).
-
-Select your desired save file.
-
-Format
-XML serialization using JAXB.
-
-The entire Batalha class is saved (including the hero, stages, and progress).
-
-📦 Dependencies
-Gradle
-dependencies {
-    // JUnit for testing
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
-    
-    // JAXB for persistence
-    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
-    implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.2'
-}
-🎯 Implemented Features
-Task 6
-[x] Batalha class coordinating the game flow.
-
-[x] GerenciadorDePersistencia (Persistence Manager) class with save/load logic.
-
-[x] Loot system using aggregation.
-
-[x] Composition: Hero scoped within Battle.
-
-[x] JAXB annotations applied to all relevant classes.
-
-Previous Tasks
-[x] Combat system with interfaces.
-
-[x] Difficulty system.
-
-[x] Full interactive menu.
-
-[x] Event system (Task 3).
-
-[x] Custom exceptions.
-
-[x] Unit tests.
-
-📊 Package Structure
+📁 Project Structure
+Plaintext
 src/main/java/
-├── app/
-│   ├── Main.java
-│   ├── Batalha.java
-│   └── GerenciadorDePersistencia.java
-├── combate/
-│   ├── Combatente.java
-│   ├── AcaoDeCombate.java
-│   └── [action classes]
-├── config/
-│   └── Dificuldade.java
-├── exceptions/
-│   ├── NivelInsuficienteException.java
-│   └── LootIndisponivelException.java
-├── fases/
-│   ├── Fase.java
-│   ├── FaseDeCombate.java
-│   ├── GeradorDeFases.java
-│   ├── TipoCenario.java
-│   └── [events]
-├── itens/
-│   ├── Item.java
-│   └── armas/
-│       ├── Arma.java
-│       └── [concrete weapons]
-├── personagens/
-│   ├── Personagem.java
-│   ├── Lootavel.java
-│   ├── heroi/
-│   │   ├── Heroi.java
-│   │   ├── CapitaoCabecudo.java
-│   │   └── CorsarioSedentario.java
-│   └── monstros/
-│       ├── Monstro.java
-│       ├── Kraken.java
-│       ├── HomemPeixe.java
-│       └── SereiaEncantadora.java
-└── util/
-    └── InputManager.java
-👥 Authorship
-Course: MC322 - Object-Oriented Programming
+├── app/          # Game loop, Main entry point, and Persistence Logic
+├── combate/      # Combat engine and Action interfaces
+├── config/       # Difficulty and game settings
+├── exceptions/   # Custom domain exceptions (e.g., LevelInsuficiente)
+├── fases/        # Level generation and environmental events
+├── itens/        # Weapons and inventory system
+├── personagens/  # Hero and Monster hierarchies
+└── util/         # Input handling and CLI helpers
+📝 Implementation Insights
+Aggregation Refactoring
+To meet the "Task 6" requirements, the loot system was refactored. Instead of a monster "carrying" a physical object (Composition), it now "knows" what it can drop (Aggregation):
 
-Institution: Unicamp
-
-Semester: 2025
-
-Authors: Rafael Rodrigues Pimentel de Melo and Matheus Boazão Silveira
-
-📝 Implementation Notes
-Aggregation in the Loot System
 Java
-// BEFORE (Incorrect - Composition):
-this.listaDeArmasParaLargar.add(new MosqueteEnferrujado());
+// Modern Aggregation Approach
+this.lootTable.add(RustyMusket.class); 
+// Item is only instantiated upon monster's defeat
+Persistence Logic
+The PersistenceManager ensures that even after a crash, your hero's progress (XP, Items, Stages) is safely stored in saves/session.xml.
 
-// AFTER (Correct - Aggregation):
-this.classesDeArmasParaLargar.add(MosqueteEnferrujado.class);
-Composition in the Battle Class
-Java
-// Main DOES NOT create the hero directly
-// Battle is responsible for the hero's lifecycle
-public class Batalha {
-    private Heroi heroi; // Composition
-    // ...
-}
-JAXB - Key Points
-All serializable classes require a default (no-arg) constructor.
+👥 Authors
+Rafael Rodrigues Pimentel de Melo
 
-Use @XmlTransient for fields that should not be persisted.
+Matheus Boazão Silveira
 
-Use @XmlSeeAlso for class hierarchies.
-
-Combat actions are recreated after deserialization.
-
-🐛 Troubleshooting
-Error: "No suitable constructor found"
-Solution: Ensure a public default constructor exists for the class.
-
-Error: "ClassCastException"
-Solution: Check for missing @XmlSeeAlso annotations in base classes.
-
-Saves not appearing in the menu
-Verify if the saves/ folder was created.
-
-Check write permissions for the application folder.
-
-📚 References
-JAXB Documentation
-
-Gradle User Guide
-
-JUnit 5 Documentation
-
-Last Update: Task 6 - Persistence and Aggregation System
+University of Campinas (Unicamp) - 2025
