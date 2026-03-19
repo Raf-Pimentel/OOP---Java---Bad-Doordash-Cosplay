@@ -44,6 +44,7 @@ classDiagram
     }
     Batalha *-- Heroi : Owned_by
     Monstro o-- Arma : References_Classes
+    
 💾 Persistence System (JAXB)
 The game features a robust Save/Load system using JAXB (Jakarta XML Binding):
 
