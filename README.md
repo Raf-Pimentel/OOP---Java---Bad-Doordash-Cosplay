@@ -6,36 +6,91 @@
 
 ## 📖 Overview
 
-**Dark Lands** is a text-based narrative RPG where players face mythical creatures in strategic turn-based combat. Developed as a university assignment, the project demonstrates core **Object-Oriented Programming (OOP)** principles, focusing on object lifecycles, data persistence, and clean architecture.
+**Dark Lands** is a text-based narrative RPG where players face mythical creatures in strategic turn-based combat. Developed as a university assignment, the project focuses on demonstrating mastery of **Object-Oriented Programming (OOP) design patterns**, specifically regarding object lifecycles, data persistence, and clean architecture.
 
 ---
 
-## 🛠️ Technical Highlights (Task 6)
+## 🛠️ Key Technical Features (Task 6)
 
-This version (Task 6) specifically implements advanced architectural requirements regarding object relationships and data handling.
+The project strictly follows architectural requirements to demonstrate different object relationships and persistence techniques.
 
-### 🧩 OOP Design: Composition vs. Aggregation
-The project strictly follows architectural requirements to demonstrate different object relationships:
+### 🧩 Architecture: Composition vs. Aggregation
+We implemented a clear distinction between how objects are owned and referenced:
 
-* **Composition (Strict Lifecycle):** The `Hero` (`Heroi`) is created and managed exclusively within the `Battle` (`Batalha`). If the battle ends or is destroyed, the hero instance follows the same lifecycle.
-* **Aggregation (Weak Coupling):** The loot system was refactored. `Monster` (`Monstro`) now stores a list of weapon **classes** (`List<Class<? extends Arma>>`) instead of active instances. Weapons are only instantiated when "dropped," demonstrating memory efficiency and decoupling.
+* **Composition (Strict Lifecycle):** The `Hero` (`Heroi`) exists only within a `Battle` (`Batalha`). If the battle session is destroyed, the hero instance is also cleared.
+* **Aggregation (Weak Coupling):** The `Monster` (`Monstro`) doesn't carry physical weapon instances. Instead, it stores a list of weapon **classes** (`List<Class<? extends Arma>>`). Items are only instantiated ("dropped") when a monster is defeated.
 
-### 💾 Persistence System (JAXB)
-Full game state management using **JAXB (Jakarta XML Binding)**:
-* **Save/Load:** Players can save progress after combat sessions.
-* **XML Serialization:** Converts the entire `Batalha` object tree into readable XML.
-* **Polymorphism:** Handles complex class hierarchies (different types of monsters/heroes) using `@XmlSeeAlso`.
+#### Relationship Diagram
+```mermaid
+classDiagram
+    class Batalha {
+        -Heroi heroi
+        -List~Fase~ fases
+        +iniciar()
+        +salvarProgresso()
+    }
+    class Heroi {
+        <<Composition>>
+        -String nome
+        -int nivel
+    }
+    class Monstro {
+        <<Aggregation>>
+        -List~Class~ lootTable
+    }
+    class Arma {
+        <<Abstract>>
+    }
+    Batalha *-- Heroi : "Owned by"
+    Monstro o-- Arma : "References Classes"
+💾 Persistence System (JAXB)
+The game features a robust Save/Load system using JAXB (Jakarta XML Binding):
 
----
+Serialization: The entire state of the Batalha class is converted to XML.
 
-## 🚀 Getting Started
+Hierarchical Support: Handles polymorphic structures (different types of monsters and actions) using @XmlSeeAlso annotations.
 
-### Prerequisites
-* **JDK 21**
-* **Gradle 8.x** (Included wrapper)
+Storage: Saves are managed by the GerenciadorDePersistencia and stored in the saves/ directory.
 
-### Installation & Execution
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/your-username/dark-lands-rpg.git](https://github.com/your-username/dark-lands-rpg.git)
-   cd dark-lands-rpg
+🚀 Getting Started
+Prerequisites
+JDK 21 or higher
+
+Gradle 8.x (Wrapper included)
+
+Installation & Execution
+Clone the repository:
+
+Bash
+git clone [https://github.com/your-username/dark-lands-rpg.git](https://github.com/your-username/dark-lands-rpg.git)
+cd dark-lands-rpg
+Build the project:
+
+Bash
+./gradlew build
+Run the game:
+
+Bash
+./gradlew run
+Running Tests
+We use JUnit 5 to ensure the stability of combat logic and persistence:
+
+Bash
+./gradlew test
+📁 Project Structure
+Plaintext
+src/main/java/
+├── app/          # Main entry, Battle coordination, and Persistence logic
+├── combate/      # Combat engine, Combatant interfaces, and Actions
+├── config/       # Difficulty and game settings
+├── exceptions/   # Custom domain exceptions (e.g., LevelInsuficiente)
+├── fases/        # Level generation, scenarios, and environment events
+├── itens/        # Items and Weapon hierarchy
+├── personagens/  # Hero and Monster specializations
+└── util/         # Input handling and CLI helpers
+👥 Authors
+Rafael Rodrigues Pimentel de Melo
+
+Matheus Boazão Silveira
+
+University of Campinas (Unicamp) - 2025
